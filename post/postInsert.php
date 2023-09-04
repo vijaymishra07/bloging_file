@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div class="navbaar">
-		<?php include "navbar.php"; ?>
+		<?php include "../navbar.php"; ?>
 	</div>
 <div class="container pt-5">
 	<div class="row">
@@ -27,7 +27,7 @@
 		<div class="col-sm-6">
 			<div class="card">
 			  <div class="card-body">
-			  	<form action="db_insert.php" method="post">
+			  	<form action="postCurd.php" method="post">
 				  <div class="mb-3">
 				    <label for="exampleInputEmail1" class="form-label">Title</label>
 				    <input type="text" class="form-control" name="user_title" id="exampleInputEmail1" aria-describedby="emailHelp">				    
