@@ -22,7 +22,7 @@
      include('../db.php');
  extract($_POST);
  if(isset($_POST['edit'])){
-  $str = "SELECT *  FROM post WHERE id = ".$user_id;
+  $str = "SELECT *  FROM post WHERE id = ".$post_id;
   $query=mysqli_query($convij,$str);
   $updateData = mysqli_fetch_array($query);
 
@@ -36,16 +36,16 @@
 			<div class="card">
 			  <div class="card-body">
 			  	<form action="postCurd.php" method="post">
-			  		 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" />
+			  		 <input type="text" name="post_id" value="<?php echo $post_id; ?>" />
 				  <div class="mb-3">
 				    <label for="exampleInputEmail1" class="form-label">Title</label>
-				    <input type="text" class="form-control" value="<?php echo $updateData['user_title']; ?>" name="user_title" id="exampleInputEmail1" aria-describedby="emailHelp">				    
+				    <input type="text" class="form-control" value="<?php echo $updateData['title']; ?>" name="user_title" id="exampleInputEmail1" aria-describedby="emailHelp">				    
 				  </div>
 				  <div class="mb-3">
 				    <label for="exampleInputPassword1" class="form-label">Description</label>
-				    <textarea input type="text" value="<?php echo $updateData['user_description']; ?>" name="user_description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+				    <textarea input type="text" value="" name="user_description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><?php echo $updateData['description']; ?></textarea>
 				  </div>
-				  <button type="submit" name="submit_button" class="btn btn-primary">Submit</button>
+				  <button type="submit" name="update_button" class="btn btn-primary">Submit</button>
 				</form>
 			  </div>
 			</div>
