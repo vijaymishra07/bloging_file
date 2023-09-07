@@ -6,11 +6,11 @@ if($email == ""){
 }
 
 
-     include('db.php');
+     include('connection.php');
  $user_id = $_SESSION['user_id'];
 
   $str = "SELECT *  FROM cratetable WHERE id = ".$user_id;
-  $query=mysqli_query($convij,$str);
+  $query=mysqli_query($con,$str);
   $updateData = mysqli_fetch_array($query);
   ?>
 <!DOCTYPE html>
@@ -35,7 +35,16 @@ if($email == ""){
 <body>
 	<div class="navbaar">
 		<?php include "navbar.php"; ?>
-		<form action="send.php" method="post">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+           <div class="card-header">
+          Basic Profile
+        </div>
+        <div class="card-body">
+          <form action="send.php" method="post">
   <input type="hidden" name="user_id">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -78,6 +87,42 @@ if($email == ""){
   </div>
   <button type="submit" class="btn btn-primary" name="updateForm">Update Form</button>
 </form>
-	</div>
+
+        </div>
+      </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+           <div class="card-header">
+          Profile Picture
+        </div>
+        <img src="fileimg/courtjob.jpeg">
+        <div class="card-body">
+          <form action="api.php" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Uplode picture</label>
+            <input type="file" name="vijuplode" class="form-control" id="exampleInputPassword1">
+          </div>
+
+          <button type="submit" value="gdfgdfgdfg" name="file_uplode"  class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+           <div class="card-header">
+          Password Change
+        </div>
+        <div class="card-body">
+          This is some text within a card body.
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+		
 </body>
 </html>
+
+

@@ -1,6 +1,6 @@
 <?php
 
-include "db.php";
+include "connection.php";
 
 if (isset($_POST['submit_button'])) {
 	extract($_POST);
@@ -8,7 +8,7 @@ if (isset($_POST['submit_button'])) {
 
 	 $str="SELECT * FROM cratetable WHERE email='$email' AND password='$encrypt_password'";
 
-		$query=mysqli_query($convij, $str);
+		$query=mysqli_query($con, $str);
 		if (mysqli_num_rows($query)==1) {
 			$data = mysqli_fetch_array($query);
 			$name = $data['name'];

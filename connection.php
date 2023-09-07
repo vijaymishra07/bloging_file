@@ -5,4 +5,6 @@ if ($con) {
 }else{
 	echo "not connect";
 }
+
+$base_url = "http://localhost/vjyphp/";
 ?>
