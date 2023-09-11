@@ -5,7 +5,9 @@ session_start();
 
    $str = "SELECT * FROM post WHERE userId='$user_id' ORDER BY Id DESC";
    $query=mysqli_query($con,$str);
+
    include "../navbar.php";
+   
    if ($query){
 
    	echo "<table border='2'>

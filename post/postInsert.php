@@ -9,7 +9,10 @@
 </head>
 <body>
 
-		<?php include "../navbar.php"; ?>
+		<?php 
+		include "../connection.php";
+		include "../navbar.php"; 
+		?>
 	
 <div class="container pt-5">
 	<div class="row">

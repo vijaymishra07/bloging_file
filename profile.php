@@ -9,7 +9,7 @@ if($email == ""){
      include('connection.php');
  $user_id = $_SESSION['user_id'];
 
-  $str = "SELECT *  FROM cratetable WHERE id = ".$user_id;
+  $str = "SELECT *  FROM users WHERE id = ".$user_id;
   $query=mysqli_query($con,$str);
   $updateData = mysqli_fetch_array($query);
   ?>
@@ -33,9 +33,9 @@ if($email == ""){
 	</style>
 </head>
 <body>
-	<div class="navbaar">
-		<?php include "navbar.php"; ?>
-  </div>
+	
+		<?php include "navbar.php"; ?> 
+
   <div class="container">
     <div class="row">
       <div class="col-sm-4">

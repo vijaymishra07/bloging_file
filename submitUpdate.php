@@ -6,7 +6,7 @@ if (isset($_POST['submit_button'])) {
 	extract($_POST);
 	    $encrypt_password = md5($password);
 
-	 $str="SELECT * FROM cratetable WHERE email='$email' AND password='$encrypt_password'";
+	 $str="SELECT * FROM users WHERE email='$email' AND password='$encrypt_password'";
 
 		$query=mysqli_query($con, $str);
 		if (mysqli_num_rows($query)==1) {
