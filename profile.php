@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();  
 @$email = $_SESSION['myemail'];
 if($email == ""){
@@ -12,6 +12,7 @@ if($email == ""){
   $str = "SELECT *  FROM users WHERE id = ".$user_id;
   $query=mysqli_query($con,$str);
   $updateData = mysqli_fetch_array($query);
+  $photo = $updateData['photo'];
   ?>
 <!DOCTYPE html>
 <html>
@@ -96,7 +97,7 @@ if($email == ""){
            <div class="card-header">
           Profile Picture
         </div>
-        <img src="fileimg/courtjob.jpeg">
+        <img src="">
         <div class="card-body">
           <form action="api.php" method="post" enctype="multipart/form-data">
           <div class="mb-3">
@@ -115,8 +116,17 @@ if($email == ""){
           Password Change
         </div>
         <div class="card-body">
-          This is some text within a card body.
-        </div>
+          <form action="api.php" method="post">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Old Password</label>
+            <input type="password" name="oldPassword" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" name="passwordChange" value="gdfgdfgdfg"  class="btn btn-primary">Submit</button>
+        </form>        </div>
       </div>
       </div>
     </div>

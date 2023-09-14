@@ -3,15 +3,26 @@ session_start();
 include "connection.php";
 $user_id = $_SESSION['user_id'];
 
-if ($_POST['file_uplode']) {
+//password update
+if (isset($_POST['passwordChange'])) {
+   $new_pass = $_POST['confirmPassword'];
+   $pass = "UPDATE users SET password='$new_pass' WHERE id='$user_id'";
 
+  $query = mysqli_query($con, $pass);
+
+}else{
+}
+
+//for file uplode
+
+if (isset($_POST['file_uplode'])) {
  $vij_name = $_FILES['vijuplode']['tmp_name'];
 // $real_name = "fileimg/".$_FILES['vijuplode']['name'];
 $image = file_get_contents($vij_name);
 // Escape the binary data to prevent SQL injection
         $escaped_image = mysqli_real_escape_string($con, $image);
 $str = "UPDATE users SET photo='$escaped_image' WHERE id='$user_id'";
- 
+
   $query = mysqli_query($con, $str);
   echo $str;
 //move_uploaded_file($vij_name, $real_name);
@@ -28,13 +39,13 @@ echo "<!DOCTYPE html>
 </html>";
 
 }else{
-	echo "sorry";
+    echo "sorry";
 }
 
 // if(null){
-// 	echo "11111111111";
+//  echo "11111111111";
 // }else{
-// 	echo "222222222222";
+//  echo "222222222222";
 // }
 
 ?>
