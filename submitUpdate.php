@@ -7,7 +7,7 @@ if (isset($_POST['submit_button'])) {
 	    $encrypt_password = md5($password);
 
 	 $str="SELECT * FROM users WHERE email='$email' AND password='$encrypt_password'";
-
+	 		
 		$query=mysqli_query($con, $str);
 		if (mysqli_num_rows($query)==1) {
 			$data = mysqli_fetch_array($query);

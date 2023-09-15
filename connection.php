@@ -6,5 +6,13 @@ if ($con) {
 	echo "not connect";
 }
 
-$base_url = "http://localhost/vjyphp/bloging_file/";
+$base_url = "http://localhost/vjyphp/";
+
+function getUserData($userId,$db){
+ $str = "SELECT * FROM users WHERE id='$userId'";
+ $query = mysqli_query($db, $str);
+ $data = mysqli_fetch_array($query);
+ return $data;
+}
+
 ?>

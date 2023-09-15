@@ -53,7 +53,7 @@ if($email == ""){
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email"  value="<?php echo $updateData['email']; ?>"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
+    <input type="email" name="email" readonly="readonly"  value="<?php echo $updateData['email']; ?>"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
   </div>
    <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Mobile No.</label>
