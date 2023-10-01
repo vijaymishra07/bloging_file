@@ -34,40 +34,43 @@ if($loggedInData['password'] === md5($_POST['oldPassword'])){
           }else{
             echo "Old password is not matched";
           }
-}else{
-    echo "sorry Password not updated";
 }
 //for file uplode
 
 if (isset($_POST['file_uplode'])) {
  $vij_name = $_FILES['vijuplode']['tmp_name'];
-// $real_name = "fileimg/".$_FILES['vijuplode']['name'];
-$image = file_get_contents($vij_name);
-// Escape the binary data to prevent SQL injection
-        $escaped_image = mysqli_real_escape_string($con, $image);
-$str = "UPDATE users SET photo='$escaped_image' WHERE id='$user_id'";
+ $real_name = "fileimg/".$_FILES['vijuplode']['name'];
+ move_uploaded_file($vij_name, $real_name);
 
-  $query = mysqli_query($con, $str);
-  echo $str;
-//move_uploaded_file($vij_name, $real_name);
-echo "<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-   <meta http-equiv='refresh' content='2; url = profile.php'>
-</head>
-<body>
-<h2>File successfully updated </h2>
-<p>Plese waite ...<p>
-</body>
-</html>";
+// get old uploaded file name
+ $str = "SELECT *  FROM users WHERE id = ".$user_id;
+  $query=mysqli_query($con,$str);
+  $updateData = mysqli_fetch_array($query);
+  $photo = $updateData['photo'];
+  if(file_exists($photo)){
+   unlink($photo);
+  }
+    
+  
+ //Update photo in db table
+    $str = "UPDATE users SET photo='$real_name' WHERE id='$user_id'";
 
-}else{
-    echo "sorry";
+      $query = mysqli_query($con, $str);
+      // $str;
+    if($query){
+       echo "<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+       <meta http-equiv='refresh' content='2; url = profile.php'>
+    </head>
+    <body>
+    <h2>File successfully updated </h2>
+    <p>Plese waite ...<p>
+    </body>
+    </html>"; 
+    }else{
+    echo "Sorry file not uploaded !!!";
+    }
 }
-
-
-
-
-
 ?>

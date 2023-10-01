@@ -13,6 +13,9 @@ if($email == ""){
   $query=mysqli_query($con,$str);
   $updateData = mysqli_fetch_array($query);
   $photo = $updateData['photo'];
+  if($photo == ""){
+    $photo = "https://placehold.co/600x400";
+  }
   ?>
 <!DOCTYPE html>
 <html>
@@ -97,7 +100,8 @@ if($email == ""){
            <div class="card-header">
           Profile Picture
         </div>
-        <img src="">
+
+        <img src="<?php echo $photo; ?>" />
         <div class="card-body">
           <form action="api.php" method="post" enctype="multipart/form-data">
           <div class="mb-3">
