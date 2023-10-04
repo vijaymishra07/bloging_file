@@ -3,25 +3,15 @@ include('../connection.php');
 //post insert ke liye hai
 
 if (isset($_POST['formType'])){
-	//extract($_POST);
+	extract($_POST);
    session_start();
    //$user_id=$_SESSION["user_id"];
    $name = $_POST['name'];
    //$user_description = $_POST['user_description'];
-   $str = "INSERT INTO users SET name='$name'";
+   $str = "INSERT INTO users SET name='$name', mobile_no='$num', email='$email', password='$vijay', state='$state', city='$city', gender='$radio'";
    $query =mysqli_query($con, $str); 
 if ($query){
-       echo "<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-   <meta http-equiv='refresh' content='3; url = users.php'>
-</head>
-<body>
-<h2>success fully </h2>
-<p>Plese waite ...<p>
-</body>
-</html>";
+echo "ok";
    }else{
    	echo "not";
    }

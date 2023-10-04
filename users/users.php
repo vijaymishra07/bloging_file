@@ -83,6 +83,9 @@
  			url:'userCrud.php',
  			success:function(data){
  				console.log(data);
+        if(data == 'ok'){
+          alert("Registered");
+        }
  			},
  			error:function(xhr,status,error){
  				console.log(error);
