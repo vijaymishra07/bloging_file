@@ -47,7 +47,7 @@ header .nevigation a:hover{
 }
 .content{
 	padding-top: 10px;
-	padding: 8px 8px;
+	padding: 4px 4px;
 	text-transform: uppercase;
 }
 label .close-btn{
@@ -106,7 +106,7 @@ label :hover{
 		top: 0px;
 		bottom: 0;
 		left: 0%;
-		right: 40%;
+		right: 20%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -140,9 +140,10 @@ label :hover{
 			<h2 class="logo">logo</h2>
 			<div class="nevigation">
 			<a href="<?php echo $base_url; ?>post/postInsert.php"> Post</a>
-			<a href="<?php echo $base_url; ?>profile.php">profile</a>
-			<a href="<?php echo $base_url; ?>post/myPost.php">my post</a>
-			<a href="<?php echo $base_url; ?>submitUpdate.php?logout=ok">logout</a>
+			<a href="<?php echo $base_url; ?>profile.php">Profile</a>
+			<a href="<?php echo $base_url; ?>post/myPost.php">My Post</a>
+			<a href="<?php echo $base_url; ?>submitUpdate.php?logout=ok">Logout</a>
+			<li><a href="<?php echo $base_url; ?>users/users.php">Users</a></li>
 			</div>
 			<label for="check">
 				<i class="fas fa-bars menu-btn"></i>
@@ -153,23 +154,4 @@ label :hover{
 	</section>
 	
 
-</body><style type="text/css">
-		.navbaar ul {
-			display: flex;
-			margin: 20px;
-		}
-		.navbaar ul li a{
-			margin: 20px;
-			text-decoration: none;
-			color: black;
-		}
-	</style>
-	<div class="navbaar">
-<ul>
-			<li><a href="<?php echo $base_url; ?>post/postInsert.php"> Post</a></li>
-			<li><a href="<?php echo $base_url; ?>profile.php">profile</a></li>
-			<li><a href="<?php echo $base_url; ?>post/myPost.php">my post</a></li>
-			<li><a href="<?php echo $base_url; ?>submitUpdate.php?logout=ok">logout</a></li>
-
-		</ul>
-	</div>
+</body>
