@@ -35,9 +35,9 @@ if (isset($_POST['insertForm'])) {
    $str = "INSERT INTO users SET email='$email', state='$state', name='$name', city='$city', mobile_no='$num', gender='$radio',verify='$random_number'";
    $query=mysqli_query($con, $str);
 
- $verify_link = "http://192.168.1.5/vjyphp/verify.php";
+ $verify_link = "http://192.168.1.5/vjyphp/verify.php?verify=". $random_number."&email=".urlencode($email). "&name=".$name;
 
- vjyMail($_SESSION['mail'],$name,$email,"Verify Your Email","Please verify your email to use our service. Click this link to verify <a href='".$verify_link."'>VERIFY ME</a>");
+ vjyMail($_SESSION['mail'],$name,$email,"Verify Your Email","Please verify your email to use our service. Click this link to verify <a href='".$verify_link."'>VERIFY ME</a>","Check your Email for Verification link.");
    if ($query){
        echo "<!DOCTYPE html>
 <html>

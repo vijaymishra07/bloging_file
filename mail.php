@@ -11,7 +11,7 @@ require 'PHPMailer/src/SMTP.php';
 $mail = new PHPMailer(true);
 session_start();
 $_SESSION['mail'] = $mail;
-function vjyMail($mail,$name,$email,$subject,$message){
+function vjyMail($mail,$name,$email,$subject,$message,$userMessage){
 try {
     //Server settings
     //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -41,7 +41,7 @@ try {
     $mail->Body    = $message;
 
     $mail->send();
-    echo 'Message has been sent';
+    echo $userMessage;
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
