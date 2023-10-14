@@ -15,11 +15,13 @@ if (isset($_POST['submit_button'])) {
 			$Email = $data['email'];
 			$MobileNo = $data['mobile_no'];
 		    $userid = $data['id'];
+			$role = $data['role'];
 			session_start();
 			$_SESSION['vijay_name'] = $name;
 			$_SESSION['myemail'] = $Email;
 			$_SESSION['mymobile_no'] = $MobileNo;
 			$_SESSION['user_id'] = $userid;
+			$_SESSION['role'] =$role;
 			header("location: profile.php");
 		}else{
 			echo "sorry";

@@ -8,7 +8,6 @@ if($email == ""){
 
      include('connection.php');
  $user_id = $_SESSION['user_id'];
-
   $str = "SELECT *  FROM users WHERE id = ".$user_id;
   $query=mysqli_query($con,$str);
   $updateData = mysqli_fetch_array($query);
@@ -42,6 +41,7 @@ if($email == ""){
 
   <div class="container">
     <div class="row">
+      <H3>welcome <?php echo($_SESSION['role']); ?></H3>
       <div class="col-sm-4">
         <div class="card">
            <div class="card-header">
