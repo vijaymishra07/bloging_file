@@ -143,7 +143,14 @@ label :hover{
 			<a href="<?php echo $base_url; ?>profile.php">Profile</a>
 			<a href="<?php echo $base_url; ?>post/myPost.php">My Post</a>
 			<a href="<?php echo $base_url; ?>submitUpdate.php?logout=ok">Logout</a>
+			<?php 
+			if($_SESSION['role'] == 'admin'){
+
+			?>
 			<li><a href="<?php echo $base_url; ?>users/users.php">Users</a></li>
+			<?php
+			}
+			?>
 			</div>
 			<label for="check">
 				<i class="fas fa-bars menu-btn"></i>

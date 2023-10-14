@@ -6,7 +6,7 @@ if ($con) {
 	echo "not connect";
 }
 
-$base_url = "http://localhost/vjyphp/";
+$base_url = "http://localhost/vjyphp/bloging_file/";
 
 function getUserData($userId,$db){
  $str = "SELECT * FROM users WHERE id='$userId'";

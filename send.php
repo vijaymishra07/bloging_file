@@ -31,8 +31,8 @@ if (isset($_POST['insertForm'])) {
     $user_id = $_SESSION['user_id'];
     
     $random_number = rand(100,999999);
-
-   $str = "INSERT INTO users SET email='$email', state='$state', name='$name', city='$city', mobile_no='$num', gender='$radio',verify='$random_number'";
+     $encripted_password = md5($vijay);
+   $str = "INSERT INTO users SET email='$email', state='$state', name='$name', city='$city', password='$encripted_password', mobile_no='$num', gender='$radio',verify='$random_number'";
    $query=mysqli_query($con, $str);
 
  $verify_link = "http://192.168.1.5/vjyphp/verify.php?verify=". $random_number."&email=".urlencode($email). "&name=".$name;
