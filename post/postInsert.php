@@ -10,6 +10,7 @@
 <body>
 
 		<?php 
+		session_start();
 		include "../connection.php";
 		include "../navbar.php"; 
 		?>
