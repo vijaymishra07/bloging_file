@@ -71,7 +71,7 @@
  		<div class="col-sm-4"></div>
  	</div>
  </div>
- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+ <?php include('js.php'); ?>
  <script>
  	function validation() {
  		// var name=document.getElementById('name').value;
