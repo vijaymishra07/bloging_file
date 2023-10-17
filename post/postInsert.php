@@ -15,7 +15,7 @@
 		include "../navbar.php"; 
 		?>
 	
-<div class="container pt-5">
+<div class="container pt-1">
 	<div class="row">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6">
@@ -39,5 +39,52 @@
 
 	</div>
 </div>
+
+<?php
+ include('../connection.php');
+     $user_id =$_SESSION['user_id'];
+
+   $str = "SELECT A.title,A.description,A.userId, B.name FROM `post` as A INNER JOIN `users` as B ON A.userId = B.id";
+
+   $query=mysqli_query($con,$str);
+
+   
+   if ($query){
+
+   	echo "
+<div class='card'>
+  <div class='card-header'>
+    <th>Title</th>
+  </div>
+  <div class='card-body'>
+    <h5 class='card-title'>Special title treatment</h5>
+    <p class='card-text'><th>Description</th></p>
+  </div>
+</div>";
+     				
+     				$sn =1;
+     	while($row = mysqli_fetch_array($query)){
+     		$post_id = $row['userId'];
+     		$userTitle = $row['title'];
+     		$userDescription = $row['description'];
+     		$name = $row['name'];
+     		echo "
+				<div class='card pt-5'>
+  <div class='card-header'>
+<div class='row'><div class='col-sm-9'>".$userTitle."</div><div class='col-sm-3'><a href='#' style='float:right'>(".$name.")</a></div></div>
+
+  </div>
+  <div class='card-body'>
+    <p class='card-text'><td>".$userDescription."</td></p>
+  </div>
+</div>";
+     		    
+   	$sn++;
+   	}
+   echo "</table>";
+   }else{
+   	echo "sorry";
+   }
+?>
 </body>
 </html>
