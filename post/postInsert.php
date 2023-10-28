@@ -38,7 +38,7 @@
 		<div class="col-sm-3"></div>
 
 	</div>
-</div>
+
 
 <?php
  include('../connection.php');
@@ -69,22 +69,34 @@
      		$userDescription = $row['description'];
      		$name = $row['name'];
      		echo "
-				<div class='card pt-5'>
-  <div class='card-header'>
-<div class='row'><div class='col-sm-9'>".$userTitle."</div><div class='col-sm-3'><a href='#' style='float:right'>(".$name.")</a></div></div>
+     		<div class='row'>
+     		     <div class='col-sm-2'></div>
+     			<div class='col-sm-8'>
+					<div class='card mt-2'>
+			  			<div class='card-header'>
+							<div class='row'>
+								<div class='col-sm-9'>".$userTitle."</div>
+								<div class='col-sm-3'><a href='#' style='float:right'>(".$name.")</a>
+								</div>
+							</div>
 
-  </div>
-  <div class='card-body'>
-    <p class='card-text'><td>".$userDescription."</td></p>
-  </div>
-</div>";
+			  			</div>
+			  			<div class='card-body'>
+					   	 <p class='card-text'><td>".$userDescription."</td></p>
+					   	 <textarea type='text' class='form-control'></textarea>
+					  </div>
+					</div>
+				</div>
+				<div class='col-sm-2'></div>
+			</div>";
      		    
    	$sn++;
    	}
-   echo "</table>";
+  
    }else{
    	echo "sorry";
    }
 ?>
+</div>
 </body>
 </html>
