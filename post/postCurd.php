@@ -56,28 +56,33 @@ if ($query){
 }
 
 
-//delete post ke liye
-if (isset($_POST['delete'])){
+//edit post ke liye
+if (isset($_GET['edit123'])){
     //extract($_POST);
    session_start();
-   $post_id=$_POST["post_id"];
-   $str = "DELETE FROM post WHERE Id='$post_id'";
-   echo $str;
+   $post_id=$_GET["cg"];
+   $str = "SELECT * FROM post WHERE Id='$post_id'";
    $query =mysqli_query($con, $str); 
 if ($query){
-       echo "<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-   <meta http-equiv='refresh' content='3; url = myPost.php'>
-</head>
-<body>
-<h2>success fully Deleted</h2>
-<p>Plese waite ...<p>
-</body>
-</html>";
+       echo json_encode(mysqli_fetch_array($query));
    }else{
     echo "not";
    }
 }
+
+//delete post ke liye
+if (isset($_POST['delete'])){
+   //extract($_POST);
+  session_start();
+  $post_id=$_POST["post_id"];
+  $str = "DELETE FROM post WHERE Id='$post_id'";
+  echo $str;
+  $query =mysqli_query($con, $str); 
+if ($query){
+      echo "Deleted";
+  }else{
+   echo "not";
+  }
+}
+
 ?>

@@ -4,6 +4,7 @@ include "connection.php";
 
 if (isset($_POST['submit_button'])) {
 	extract($_POST);
+	echo "vijay";
 	    $encrypt_password = md5($password);
 
 	 $str="SELECT * FROM users WHERE email='$email' AND password='$encrypt_password'";
