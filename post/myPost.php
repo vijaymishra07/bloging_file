@@ -61,8 +61,10 @@ session_start();
 		$.get('postCurd.php?edit123=raipur&cg='+id,function(xyz){
 			console.log(xyz);
 			var data = JSON.parse(xyz);
-			$('#title').val(data.title);
+			$('#title_vijay').val(data.title);
 			$('#description').val(data.description);
+			$('#vijayId').val(data.Id);
+
 
 		});
 
@@ -101,10 +103,14 @@ session_start();
       </div>
       <div class="modal-body">
         <!-- Post update form -->
-			  	<form action="postCurd.php" method="post">
+			  	<form action="postCurd.php" method="post" id="postForm">
+				  <div class="mb-3">
+				  <input type="text" class="form-control" name="updatePost" value="mishra" aria-describedby="emailHelp">				    
+				    <input type="text" class="form-control" name="mishra_id" id="vijayId" aria-describedby="emailHelp">				    
+				  </div>
 				  <div class="mb-3">
 				    <label for="exampleInputEmail1" class="form-label">Title</label>
-				    <input type="text" class="form-control" name="user_title" id="title" aria-describedby="emailHelp">				    
+				    <input type="text" class="form-control" name="user_title" id="title_vijay" aria-describedby="emailHelp">				    
 				  </div>
 				  <div class="mb-3">
 				    <label for="exampleInputPassword1" class="form-label">Description</label>
@@ -116,11 +122,28 @@ session_start();
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" onclick="updatePost();" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+<script>
+	function updatePost(){
+		//console.log('save change button call');
+		var vijay = $('#postForm').serialize();
+		console.log(vijay);
+		$.ajax({
+			url: "postCurd.php",
+			method: "POST",
+			data: vijay,
+			success:function (vijayResponse){
+				if(vijayResponse=="updated"){
+					alert('this value is updated');
+				}
+			}
+		})
+	}
+</script>
 </body>
 </html>
 

@@ -69,6 +69,23 @@ if ($query){
     echo "not";
    }
 }
+//post update
+if (isset($_POST['updatePost'])){
+   //extract($_POST);
+  session_start();
+  $vijay_id=$_POST["mishra_id"];
+  $vijay_title=$_POST["user_title"];
+  $vijay_description=$_POST['user_description'];
+  $str = "UPDATE post SET title='$vijay_title', description='$vijay_description' WHERE Id='$vijay_id'";
+  //echo $str;
+  echo 'india';
+  $query =mysqli_query($con, $str); 
+if ($query){
+      echo "updated";
+  }else{
+   echo "not";
+  }
+}
 
 //delete post ke liye
 if (isset($_POST['delete'])){
