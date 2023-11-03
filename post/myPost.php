@@ -105,8 +105,8 @@ session_start();
         <!-- Post update form -->
 			  	<form action="postCurd.php" method="post" id="postForm">
 				  <div class="mb-3">
-				  <input type="text" class="form-control" name="updatePost" value="mishra" aria-describedby="emailHelp">				    
-				    <input type="text" class="form-control" name="mishra_id" id="vijayId" aria-describedby="emailHelp">				    
+				  <input type="hidden" class="form-control" name="updatePost" value="mishra" aria-describedby="emailHelp">				    
+				    <input type="hidden" class="form-control" name="mishra_id" id="vijayId" aria-describedby="emailHelp">				    
 				  </div>
 				  <div class="mb-3">
 				    <label for="exampleInputEmail1" class="form-label">Title</label>
@@ -137,8 +137,9 @@ session_start();
 			method: "POST",
 			data: vijay,
 			success:function (vijayResponse){
-				if(vijayResponse=="updated"){
+				if(vijayResponse=="indiaupdated"){
 					alert('this value is updated');
+					window.location.reload();
 				}
 			}
 		})

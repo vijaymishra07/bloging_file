@@ -51,16 +51,7 @@
    
    if ($query){
 
-   	echo "
-<div class='card'>
-  <div class='card-header'>
-    <th>Title</th>
-  </div>
-  <div class='card-body'>
-    <h5 class='card-title'>Special title treatment</h5>
-    <p class='card-text'><th>Description</th></p>
-  </div>
-</div>";
+   	echo "";
      				
      				$sn =1;
      	while($row = mysqli_fetch_array($query)){
@@ -82,8 +73,14 @@
 
 			  			</div>
 			  			<div class='card-body'>
-					   	 <p class='card-text'><td>".$userDescription."</td></p>
-					   	 <textarea type='text' class='form-control'></textarea>
+					   	 <p class='card-text'>".$userDescription."</p>
+					   	 <div class='row'>
+					   	 <div class='col-sm-10'><textarea type='text' id='vijay".$post_id."' onkeyup='blurButton(".$post_id.");' class='form-control'></textarea>
+					   	 </div>
+					   	 <div class='col-sm-2'>
+              <button type='button' class='btn btn-primary mt-3' disabled>Submit</button>
+					   	 </div>
+					   	 </div>
 					  </div>
 					</div>
 				</div>
@@ -98,5 +95,11 @@
    }
 ?>
 </div>
+<script>
+	function blurButton(viy){
+		var post = $("#vijay"+viy);
+		console.log(post.length);
+	}
+</script>
 </body>
 </html>
